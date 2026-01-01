@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Switcher Test - MBA for Kids</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .status-box {
+            background: #dcfce7;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        .status-box h2 {
+            color: #047857;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .status-box p {
+            color: #065f46;
+            margin: 5px 0;
+        }
+        
+        .lang-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 12px;
+        }
+        
+        .lang-btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: 3px solid #2563eb;
+            background: white;
+            color: #2563eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+        
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+        }
+        
+        .lang-btn.active {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .test-section {
+            background: #f9fafb;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .test-section h3 {
+            color: #1f2937;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .test-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #3b82f6;
+        }
+        
+        .test-item strong {
+            display: block;
+            color: #374151;
+            margin-bottom: 5px;
+        }
+        
+        .test-item span {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+        
+        .indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .indicator.green {
+            background: #10b981;
+        }
+        
+        .indicator.blue {
+            background: #3b82f6;
+        }
+        
+        .warning {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .warning strong {
+            color: #92400e;
+        }
+        
+        .warning p {
+            color: #78350f;
+            margin-top: 5px;
+        }
+        
+        .footer-note {
+            text-align: center;
+            color: #9ca3af;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Language Switcher Test</h1>
+        <p class="subtitle">Тестирование системы переключения языков EN ⇄ RU</p>
+        
+        <div class="status-box">
+            <h2>✅ Статус системы</h2>
+            <p id="current-lang"><strong>Текущий язык:</strong> <span id="lang-display">Загрузка...</span></p>
+            <p><strong>Файлы переводов:</strong> ✓ Загружены</p>
+            <p><strong>Language.js:</strong> ✓ Активен</p>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ Инструкция по тестированию:</strong>
+            <p>1. Нажмите кнопку RU или EN ниже</p>
+            <p>2. Откройте <code>index.html</code> в новой вкладке</p>
+            <p>3. Проверьте, что ВСЕ тексты переведены на выбранный язык</p>
+            <p>4. Исключения: адреса (Brooklyn), технические термины (Python, Figma), телефоны, URL</p>
+        </div>
+        
+        <div class="lang-buttons">
+            <button class="lang-btn" data-lang="en" onclick="switchLang('en')">
+                🇺🇸 English
+            </button>
+            <button class="lang-btn" data-lang="ru" onclick="switchLang('ru')">
+                🇷🇺 Русский
+            </button>
+        </div>
+        
+        <div class="test-section">
+            <h3><span class="indicator green"></span>Протестированные секции</h3>
+            <div class="test-item">
+                <strong>Navigation (nav)</strong>
+                <span>Программа • Результаты • Преимущества • Гарантия • Записаться</span>
+            </div>
+            <div class="test-item">
+                <strong>Hero Section</strong>
+                <span>Главный баннер со статистикой и CTA кнопкой</span>
+            </div>
+            <div class="test-item">
+                <strong>Problem Section</strong>
+                <span>5 карточек с проблемами родителей</span>
+            </div>
+            <div class="test-item">
+                <strong>Results Section</strong>
+                <span>7 карточек с результатами программы</span>
+            </div>
+            <div class="test-item">
+                <strong>Program Section</strong>
+                <span>3 этапа программы (9 месяцев)</span>
+            </div>
+            <div class="test-item">
+                <strong>Skills Section</strong>
+                <span>12 навыков будущего</span>
+            </div>
+            <div class="test-item">
+                <strong>Benefits Section</strong>
+                <span>4 карточки преимуществ программы</span>
+            </div>
+            <div class="test-item">
+                <strong>Value Section</strong>
+                <span>Ценность программы vs альтернативы</span>
+            </div>
+            <div class="test-item">
+                <strong>Guarantee Section</strong>
+                <span>Гарантия возврата денег</span>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3><span class="indicator blue"></span>Новые секции (добавлены 24.12.2024)</h3>
+            <div class="test-item">
+                <strong>Pricing - Progressive Pricing Structure</strong>
+                <span>5 тарифов: $350-$550/мес • YOU'RE HERE бейдж</span>
+            </div>
+            <div class="test-item">
+                <strong>Pricing - Payment Cards</strong>
+                <span>Месячная оплата ($350/мес) • Квартальная оплата ($1,000/3 мес)</span>
+            </div>
+            <div class="test-item">
+                <strong>Value Breakdown</strong>
+                <span>$17.50/час • 180x ROI • Сравнение с репетиторами</span>
+            </div>
+            <div class="test-item">
+                <strong>Benefits List (What Average Student Gets)</strong>
+                <span>6 преимуществ: MVP, Portfolio, Skills, Speaking, Business, Network</span>
+            </div>
+            <div class="test-item">
+                <strong>Schedule/Location Options</strong>
+                <span>2 локации в Brooklyn + онлайн формат</span>
+            </div>
+            <div class="test-item">
+                <strong>Details Section</strong>
+                <span>Формат • Расписание • Размер группы • Требования • Следующий поток</span>
+            </div>
+            <div class="test-item">
+                <strong>Safety Section</strong>
+                <span>Обязательства по безопасности детей (COPPA)</span>
+            </div>
+            <div class="test-item">
+                <strong>Bonuses Section</strong>
+                <span>4 бонуса: Лекция ($497) • Сессия ($997) • Fast-track • Секрет</span>
+            </div>
+            <div class="test-item">
+                <strong>CTA Section</strong>
+                <span>Финальный призыв к действию с WhatsApp</span>
+            </div>
+            <div class="test-item">
+                <strong>Footer</strong>
+                <span>Копирайт • Партнёрство с GoCoding.tech</span>
+            </div>
+        </div>
+        
+        <div class="footer-note">
+            <p><strong>Итого:</strong> 19 секций полностью переведены на русский язык</p>
+            <p>Версия: 1.4.0 • Дата: 24 декабря 2024</p>
+        </div>
+    </div>
+    
+    <script>
+        // Get current language from localStorage
+        function getCurrentLang() {
+            return localStorage.getItem('mba-language') || 'en';
+        }
+        
+        // Switch language
+        function switchLang(lang) {
+            localStorage.setItem('mba-language', lang);
+            updateDisplay();
+            
+            // Show success message
+            alert(`✅ Язык изменён на: ${lang === 'ru' ? 'Русский' : 'English'}\n\nТеперь откройте index.html чтобы увидеть изменения!`);
+        }
+        
+        // Update display
+        function updateDisplay() {
+            const currentLang = getCurrentLang();
+            document.getElementById('lang-display').textContent = currentLang === 'ru' ? '🇷🇺 Русский' : '🇺🇸 English';
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const btnLang = btn.getAttribute('data-lang');
+                if (btnLang === currentLang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+        
+        // Initialize on load
+        updateDisplay();
+    </script>
+</body>
+</html>

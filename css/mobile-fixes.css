@@ -1,0 +1,306 @@
+/* ===========================
+   Additional Mobile Optimizations
+   =========================== */
+
+/* Mobile styles for simplified weekly schedule */
+@media (max-width: 768px) {
+    .location-note-highlight {
+        font-size: 1rem !important;
+        padding: var(--spacing-sm);
+        text-align: center;
+    }
+    
+    .weekly-schedule-simple {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .schedule-card-icon {
+        font-size: 2rem;
+    }
+    
+    .schedule-card-time {
+        font-size: 1.5rem;
+    }
+    
+    .schedule-card-title {
+        font-size: 1.1rem;
+    }
+    
+    .schedule-total-box {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-md);
+    }
+    
+    .total-icon {
+        font-size: 2.5rem;
+    }
+    
+    .total-content h4 {
+        font-size: 1.25rem;
+    }
+    
+    .total-content p {
+        font-size: 0.95rem;
+    }
+
+/* Fix for result badges on mobile */
+    .result-badge {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.75rem;
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+    
+    .problem-card h3,
+    .result-card h3,
+    .benefit-card h3 {
+        font-size: 1.25rem;
+        line-height: 1.3;
+    }
+    
+    .problem-card p,
+    .result-card p,
+    .benefit-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .logo-main {
+        font-size: 1.15rem;
+    }
+    
+    .logo-sub {
+        font-size: 0.6rem;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+    }
+    
+    .hero-cta .btn {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    /* Progressive Pricing Mobile Optimization */
+    .pricing-section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .pricing-container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .pricing-alert {
+        margin: 0 calc(-1 * var(--spacing-md));
+        border-radius: 1rem;
+        border-width: 2px;
+    }
+    
+    .tier-active {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(16, 185, 129, 0.25));
+        box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .pricing-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .price-amount {
+        font-size: 2.5rem;
+    }
+    
+    /* Benefits Cards Mobile Optimization */
+    .pricing-breakdown {
+        margin: 0 calc(-1 * var(--spacing-md));
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .breakdown-benefits {
+        padding: var(--spacing-lg);
+    }
+    
+    .breakdown-benefits h4 {
+        font-size: 1.4rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* Location Section Mobile */
+    .schedule-location {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .location-icon {
+        font-size: 2.5rem;
+        width: 70px;
+        height: 70px;
+    }
+    
+    .location-info {
+        width: 100%;
+    }
+    
+    .location-info h4 {
+        font-size: 1.4rem;
+    }
+    
+    .location-options {
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .result-badge {
+        position: static;
+        display: inline-block;
+        margin-top: var(--spacing-sm);
+    }
+    
+    .result-card {
+        padding-top: var(--spacing-lg);
+    }
+    
+    .hero-badge {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+    
+    .logo-main {
+        font-size: 1rem;
+    }
+    
+    .logo-sub {
+        font-size: 0.55rem;
+    }
+    
+    .footer-logo .logo-main {
+        font-size: 1.35rem;
+    }
+    
+    .footer-logo .logo-sub {
+        font-size: 0.65rem;
+    }
+    
+    /* Progressive Pricing for small mobile */
+    .pricing-alert {
+        padding: var(--spacing-md);
+        margin: 0;
+    }
+    
+    .pricing-alert .alert-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .pricing-alert .alert-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .tier {
+        padding: var(--spacing-md);
+    }
+    
+    .tier-price {
+        font-size: 1.4rem;
+    }
+    
+    .alert-icon {
+        font-size: 2rem;
+    }
+    
+    .alert-note {
+        font-size: 0.85rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .pricing-card {
+        padding: var(--spacing-md);
+    }
+    
+    .pricing-card h3 {
+        font-size: 1.4rem;
+    }
+    
+    .price-amount {
+        font-size: 2rem;
+    }
+    
+    .pricing-features li {
+        font-size: 0.9rem;
+    }
+    
+    /* Benefits Cards Small Mobile */
+    .pricing-breakdown {
+        padding: var(--spacing-lg) var(--spacing-sm);
+        margin: 0;
+    }
+    
+    .breakdown-benefits {
+        padding: var(--spacing-md);
+    }
+    
+    .breakdown-benefits h4 {
+        font-size: 1.25rem;
+    }
+    
+    /* Location Section Small Mobile */
+    .schedule-location {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .location-icon {
+        font-size: 2rem;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .location-info h4 {
+        font-size: 1.25rem;
+    }
+    
+    /* Bonuses Section Mobile */
+    .bonuses-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .bonus-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .bonus-icon {
+        font-size: 2.5rem;
+    }
+    
+    .bonus-card h3 {
+        font-size: 1.25rem;
+    }
+    
+    .bonus-cta-box {
+        padding: var(--spacing-lg);
+    }
+    
+    .bonus-cta-box h3 {
+        font-size: 1.5rem;
+    }
+    
+    .bonus-cta-box p {
+        font-size: 1rem;
+    }
+    
+    .bonus-warning {
+        font-size: 1rem;
+    }
+}
